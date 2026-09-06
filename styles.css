@@ -1,0 +1,261 @@
+﻿/* ==========================================================================
+   AK PLASTER ART — PREMIUM ARCHITECTURAL DESIGN SYSTEM & STYLESHEET
+   Specialization: POP (Plaster of Paris) Works • Mumbai
+   ========================================================================== */
+
+:root {
+  --color-dark: #080C14;
+  --color-darker: #04070D;
+  --color-surface: #0E1422;
+  --color-surface-hover: #151D30;
+  --color-border: #1B2438;
+  --color-border-light: #2A3650;
+  --color-accent-yellow: #F59E0B;
+  --color-accent-yellow-hover: #D97706;
+  --color-laser-red: #EF4444;
+  --color-text-main: #F8FAFC;
+  --color-text-muted: #94A3B8;
+  --color-text-dim: #64748B;
+  
+  --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Plus Jakarta Sans', var(--font-main);
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* Reset & Base Setup */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-main);
+  background-color: var(--color-dark);
+  color: var(--color-text-main);
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: var(--color-dark);
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* Utility Theme Classes */
+.bg-dark { background-color: var(--color-dark); }
+.bg-darker { background-color: var(--color-darker); }
+.bg-surface { background-color: var(--color-surface); }
+.border-dark-border { border-color: var(--color-border); }
+.text-accent-yellow { color: var(--color-accent-yellow); }
+.bg-accent-yellow { background-color: var(--color-accent-yellow); }
+.font-display { font-family: var(--font-display); }
+.font-mono { font-family: var(--font-mono); }
+
+/* Architectural Blueprint Grids */
+.bg-radial-grid {
+  background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.08) 1px, transparent 0);
+  background-size: 32px 32px;
+}
+
+.bg-blueprint-grid {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-darker);
+}
+::-webkit-scrollbar-thumb {
+  background: #253147;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-yellow);
+}
+
+/* Navigation Shrink on Scroll */
+#main-nav.scrolled {
+  background-color: rgba(4, 7, 13, 0.95);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.8);
+}
+#main-nav.scrolled #nav-container {
+  height: 64px;
+}
+
+/* Nav Links Underline Effect */
+.nav-link {
+  position: relative;
+  padding: 6px 0;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--color-accent-yellow);
+  transition: width 0.25s ease;
+}
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Laser Scanning Line in Hero */
+.laser-line-ambient {
+  position: absolute;
+  top: 45%;
+  left: 0;
+  right: 0;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent 0%, rgba(239, 68, 68, 0.3) 20%, #ef4444 50%, rgba(239, 68, 68, 0.3) 80%, transparent 100%);
+  box-shadow: 0 0 10px #ef4444, 0 0 3px #ffffff;
+  pointer-events-none;
+  z-index: 5;
+  opacity: 0.85;
+  animation: laserPulse 4s ease-in-out infinite alternate;
+}
+
+@keyframes laserPulse {
+  0% { transform: translateY(-30px); opacity: 0.4; }
+  50% { opacity: 0.9; }
+  100% { transform: translateY(30px); opacity: 0.5; }
+}
+
+/* Laser Scanner in Section 04 */
+.laser-scanner {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, rgba(239, 68, 68, 0.4) 15%, #ef4444 50%, rgba(239, 68, 68, 0.4) 85%, transparent 100%);
+  box-shadow: 0 0 14px #ef4444, 0 0 4px #ffffff;
+  pointer-events-none;
+  z-index: 10;
+  animation: scanVertical 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes scanVertical {
+  0% { top: 10%; opacity: 0.2; }
+  25% { opacity: 0.9; }
+  50% { top: 90%; opacity: 0.3; }
+  75% { opacity: 0.9; }
+  100% { top: 10%; opacity: 0.2; }
+}/* Service Card Hover States */
+.service-card {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.6);
+}
+
+/* Before / After Slider Engine */
+.before-after-container {
+  position: relative;
+  touch-action: none;
+  cursor: ew-resize;
+  user-select: none;
+}
+.slider-handle {
+  pointer-events: none;
+  transition: transform 0.05s linear;
+}
+.before-overlay {
+  will-change: width;
+}
+.before-overlay img {
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Client Boxes */
+.client-box {
+  transition: all 0.25s ease;
+}
+.client-box:hover {
+  transform: translateY(-2px);
+  border-color: rgba(245, 158, 11, 0.5);
+  background-color: var(--color-surface);
+}
+
+/* Portfolio Filters */
+.filter-btn {
+  transition: all 0.2s ease;
+}
+.filter-btn.active {
+  background-color: var(--color-accent-yellow) !important;
+  color: var(--color-dark) !important;
+  border-color: var(--color-accent-yellow) !important;
+}
+
+/* Gallery Grid Transitions */
+.gallery-item {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease, border-color 0.3s ease;
+}
+.gallery-item:hover {
+  transform: translateY(-4px);
+  border-color: rgba(245, 158, 11, 0.4);
+}
+.gallery-item.hidden-item {
+  display: none;
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+/* Floating WhatsApp Pulse */
+.floating-whatsapp {
+  animation: floatBounce 3s ease-in-out infinite;
+}
+@keyframes floatBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* Modal Open / Close Transition */
+#lightbox-modal.active,
+#site-visit-modal.active {
+  display: flex !important;
+  animation: modalFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Mobile Sticky Bar Margin for Body */
+@media (max-width: 1023px) {
+  body {
+    padding-bottom: 70px;
+  }
+  .floating-whatsapp {
+    bottom: 80px;
+    right: 16px;
+  }
+}
+
+/* Accessibility: Prefers Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .laser-line-ambient,
+  .laser-scanner {
+    display: none !important;
+  }
+}

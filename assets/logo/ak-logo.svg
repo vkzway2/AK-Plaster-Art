@@ -1,0 +1,39 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 80" fill="none" class="ak-logo-svg">
+  <!-- Precision Technical Framing Crosshair Mark -->
+  <g class="ak-symbol" transform="translate(10, 10)">
+    <!-- Outer Technical Frame with Dimension Notches -->
+    <rect x="0" y="0" width="60" height="60" rx="4" stroke="#F59E0B" stroke-width="2" stroke-dasharray="14 4 4 4" fill="#080C14"/>
+    
+    <!-- Corner Alignment Markers -->
+    <path d="M 0 10 L 10 10 L 10 0" stroke="#F59E0B" stroke-width="2.5" fill="none"/>
+    <path d="M 50 0 L 50 10 L 60 10" stroke="#F59E0B" stroke-width="2.5" fill="none"/>
+    <path d="M 60 50 L 50 50 L 50 60" stroke="#F59E0B" stroke-width="2.5" fill="none"/>
+    <path d="M 10 60 L 10 50 L 0 50" stroke="#F59E0B" stroke-width="2.5" fill="none"/>
+    
+    <!-- Geometric 'AK' Architectural Monogram -->
+    <!-- 'A' Structure -->
+    <path d="M 16 46 L 27 16 L 38 46" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="20" y1="36" x2="34" y2="36" stroke="#F59E0B" stroke-width="2.5"/>
+    
+    <!-- 'K' Structure Integrated with Ceiling T-Grid -->
+    <line x1="39" y1="16" x2="39" y2="46" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round"/>
+    <line x1="39" y1="31" x2="51" y2="16" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+    <line x1="43" y1="26" x2="52" y2="46" stroke="#F59E0B" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- Precision Laser Level Reference Point -->
+    <circle cx="30" cy="30" r="2" fill="#EF4444"/>
+  </g>
+
+  <!-- Typographic Wordmark -->
+  <g transform="translate(85, 22)">
+    <!-- Main Title -->
+    <text x="0" y="24" font-family="'Plus Jakarta Sans', 'Inter', system-ui, sans-serif" font-size="24" font-weight="900" letter-spacing="0.12em" fill="#FFFFFF">
+      AK PLASTER ART
+    </text>
+    
+    <!-- Subtitle / Tagline -->
+    <text x="1" y="42" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="600" letter-spacing="0.28em" fill="#94A3B8">
+      POP SPECIALIST <tspan fill="#F59E0B">•</tspan> 12+ YRS <tspan fill="#F59E0B">•</tspan> MUMBAI
+    </text>
+  </g>
+</svg>
