@@ -1,4 +1,4 @@
-﻿/**
+/**
  * AK Plaster Art — Core Interactive JavaScript Engine
  * Specialization: POP (Plaster of Paris) Works • Mumbai
  */
@@ -7,6 +7,131 @@ document.addEventListener('DOMContentLoaded', () => {
   // 1. Initialize Lucide Icons
   if (typeof lucide !== 'undefined') {
     lucide.createIcons();
+  }
+
+  // 2. Dark / Light Theme Toggle Engine
+  const themeToggle = document.getElementById('theme-toggle');
+  const themeIconSun = document.getElementById('theme-icon-sun');
+  const themeIconMoon = document.getElementById('theme-icon-moon');
+  const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+  const mobileThemeIconSun = document.getElementById('mobile-theme-icon-sun');
+  const mobileThemeIconMoon = document.getElementById('mobile-theme-icon-moon');
+  const mobileThemeText = document.getElementById('mobile-theme-text');
+
+  const applyTheme = (theme) => {
+    if (theme === 'light') {
+      document.documentElement.classList.add('light');
+      document.documentElement.classList.remove('dark');
+      themeIconSun?.classList.remove('hidden');
+      themeIconMoon?.classList.add('hidden');
+      mobileThemeIconSun?.classList.remove('hidden');
+      mobileThemeIconMoon?.classList.add('hidden');
+      if (mobileThemeText) mobileThemeText.innerText = 'LIGHT MODE';
+    } else {
+      document.documentElement.classList.remove('light');
+      document.documentElement.classList.add('dark');
+      themeIconSun?.classList.add('hidden');
+      themeIconMoon?.classList.remove('hidden');
+      mobileThemeIconSun?.classList.add('hidden');
+      mobileThemeIconMoon?.classList.remove('hidden');
+      if (mobileThemeText) mobileThemeText.innerText = 'DARK MODE';
+    }
+    localStorage.setItem('ak-theme', theme);
+  };
+
+  const savedTheme = localStorage.getItem('ak-theme') || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  applyTheme(savedTheme);
+
+  const toggleCurrentTheme = () => {
+    const isLight = document.documentElement.classList.contains('light');
+    applyTheme(isLight ? 'dark' : 'light');
+  };
+
+  themeToggle?.addEventListener('click', toggleCurrentTheme);
+  mobileThemeToggle?.addEventListener('click', toggleCurrentTheme);
+
+  // 3. Hero Headline Kinetic Motion Graphics (Mouse + Scroll)
+  const heroSection = document.getElementById('hero');
+  const wallHeadline = document.getElementById('hero-wall-headline');
+  const heroAccentLine = document.getElementById('hero-accent-line');
+
+  if (heroSection && wallHeadline) {
+    let mouseX = 0.5, mouseY = 0.5;
+    let targetMouseX = 0.5, targetMouseY = 0.5;
+    let scrollProgress = 0;
+    let targetScrollProgress = 0;
+
+    const updateScroll = () => {
+      const scrollY = window.scrollY;
+      const heroHeight = heroSection.offsetHeight || window.innerHeight;
+      targetScrollProgress = Math.min(1, Math.max(0, scrollY / (heroHeight * 0.85)));
+    };
+
+    window.addEventListener('scroll', updateScroll, { passive: true });
+    updateScroll();
+
+    heroSection.addEventListener('mousemove', (e) => {
+      const rect = heroSection.getBoundingClientRect();
+      targetMouseX = Math.min(1, Math.max(0, (e.clientX - rect.left) / rect.width));
+      targetMouseY = Math.min(1, Math.max(0, (e.clientY - rect.top) / rect.height));
+    }, { passive: true });
+
+    heroSection.addEventListener('mouseleave', () => {
+      targetMouseX = 0.5;
+      targetMouseY = 0.5;
+    });
+
+    // High-performance smooth animation loop (Lerp)
+    const animateMotionGraphics = () => {
+      const lerp = 0.08;
+      mouseX += (targetMouseX - mouseX) * lerp;
+      mouseY += (targetMouseY - mouseY) * lerp;
+      scrollProgress += (targetScrollProgress - scrollProgress) * lerp;
+
+      // 1. Mouse 3D Perspective Tilt on Headline
+      const tiltY = (mouseX - 0.5) * 16; // -8deg to +8deg
+      const tiltX = -(mouseY - 0.5) * 14; // -7deg to +7deg
+      wallHeadline.style.transform = `perspective(1000px) rotateX(${tiltX.toFixed(2)}deg) rotateY(${tiltY.toFixed(2)}deg)`;
+
+      // 2. Kinetic Typographical Motion Graphics on Scroll
+      // Word 1 (PRECISION): glides smoothly to the left
+      const word1X = (scrollProgress * -45).toFixed(1);
+      const word1Z = (scrollProgress * 22).toFixed(1);
+      // Word 2 (BUILT INTO): counter-motion glides smoothly to the right
+      const word2X = (scrollProgress * 45).toFixed(1);
+      const word2Z = (scrollProgress * 12).toFixed(1);
+      // Word 3 (EVERY SURFACE.): elevates forward with depth
+      const word3Y = (scrollProgress * 14).toFixed(1);
+      const word3Z = (scrollProgress * 32).toFixed(1);
+
+      wallHeadline.style.setProperty('--word1-x', `${word1X}px`);
+      wallHeadline.style.setProperty('--word1-z', `${word1Z}px`);
+      wallHeadline.style.setProperty('--word2-x', `${word2X}px`);
+      wallHeadline.style.setProperty('--word2-z', `${word2Z}px`);
+      wallHeadline.style.setProperty('--word3-y', `${word3Y}px`);
+      wallHeadline.style.setProperty('--word3-z', `${word3Z}px`);
+
+      // 3. Wall Texture Specular & Lighting Motion (Mouse + Scroll)
+      const textureOffsetX = ((mouseX - 0.5) * 50 + scrollProgress * 80).toFixed(1);
+      const textureOffsetY = ((mouseY - 0.5) * 35 + scrollProgress * 50).toFixed(1);
+      wallHeadline.style.setProperty('--texture-offset-x', `${textureOffsetX}px`);
+      wallHeadline.style.setProperty('--texture-offset-y', `${textureOffsetY}px`);
+      wallHeadline.style.setProperty('--mouse-light-x', `${(mouseX * 100).toFixed(1)}%`);
+      wallHeadline.style.setProperty('--mouse-light-y', `${(mouseY * 100).toFixed(1)}%`);
+      wallHeadline.style.setProperty('--scroll-light-x', `${(30 + scrollProgress * 50).toFixed(1)}%`);
+      wallHeadline.style.setProperty('--scroll-light-y', `${(20 + scrollProgress * 60).toFixed(1)}%`);
+
+      // 4. Accent Underline Expansion & Glow
+      if (heroAccentLine) {
+        const scaleX = (1 + scrollProgress * 0.25).toFixed(2);
+        heroAccentLine.style.transform = `scaleX(${scaleX})`;
+        heroAccentLine.style.boxShadow = `0 0 ${8 + scrollProgress * 18}px rgba(245, 158, 11, ${(0.4 + scrollProgress * 0.4).toFixed(2)})`;
+      }
+
+      requestAnimationFrame(animateMotionGraphics);
+    };
+
+    requestAnimationFrame(animateMotionGraphics);
   }
 
   // 2. Navigation Shrink & Active Link Highlight on Scroll
@@ -49,25 +174,29 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileLinks = document.querySelectorAll('.mobile-nav-link');
 
   if (mobileToggle && mobileMenu) {
-    mobileToggle.addEventListener('click', () => {
-      const isHidden = mobileMenu.classList.contains('hidden');
-      if (isHidden) {
+    const toggleMenu = (open) => {
+      if (open) {
         mobileMenu.classList.remove('hidden');
-        menuIconOpen.classList.add('hidden');
-        menuIconClose.classList.remove('hidden');
+        menuIconOpen?.classList.add('hidden');
+        menuIconClose?.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
       } else {
         mobileMenu.classList.add('hidden');
-        menuIconOpen.classList.remove('hidden');
-        menuIconClose.classList.add('hidden');
+        menuIconOpen?.classList.remove('hidden');
+        menuIconClose?.classList.add('hidden');
+        document.body.style.overflow = '';
       }
+    };
+
+    mobileToggle.addEventListener('click', () => {
+      const isHidden = mobileMenu.classList.contains('hidden');
+      toggleMenu(isHidden);
     });
 
     mobileLinks.forEach((link) => {
       link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-        menuIconOpen.classList.remove('hidden');
-        menuIconClose.classList.add('hidden');
-      } );
+        toggleMenu(false);
+      });
     });
   }
 
@@ -304,31 +433,82 @@ function openServiceInquiry(serviceName) {
   }
 }
 
-// 10. Form Submission Handlers (WhatsApp Integration)
+// 10. Helper for Reliable WhatsApp Dispatch on Mobile & Desktop
+function dispatchWhatsApp(message) {
+  const whatsappUrl = `https://wa.me/918840035249?text=${message}`;
+  const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || (window.innerWidth < 1024);
+  if (isMobile) {
+    // Direct window.location.href ensures mobile devices launch the WhatsApp application without popup blockers
+    window.location.href = whatsappUrl;
+  } else {
+    // On desktop browsers, open new tab with fallback to location.href if popup blocked
+    const win = window.open(whatsappUrl, '_blank');
+    if (!win || win.closed || typeof win.closed === 'undefined') {
+      window.location.href = whatsappUrl;
+    }
+  }
+}
+
+// 11. Form Submission Handlers (WhatsApp Integration with Mandatory Validation)
 function handleModalSubmit(event) {
   event.preventDefault();
-  const name = document.getElementById('modal-name')?.value || '';
-  const phone = document.getElementById('modal-phone')?.value || '';
-  const location = document.getElementById('modal-location')?.value || '';
-  const service = document.getElementById('modal-service')?.value || '';
+  const form = document.getElementById('modal-form');
+  if (form && !form.checkValidity()) {
+    form.reportValidity();
+    return;
+  }
+
+  const name = document.getElementById('modal-name')?.value.trim() || '';
+  const phone = document.getElementById('modal-phone')?.value.trim() || '';
+  const location = document.getElementById('modal-location')?.value.trim() || '';
+  const service = document.getElementById('modal-service')?.value.trim() || '';
+
+  // Validate minimum 10 digits for mobile number
+  const phoneDigits = phone.replace(/[^0-9]/g, '');
+  if (phoneDigits.length < 10) {
+    const phoneInput = document.getElementById('modal-phone');
+    if (phoneInput) {
+      phoneInput.setCustomValidity('Please enter a valid 10-digit mobile number');
+      phoneInput.reportValidity();
+      phoneInput.addEventListener('input', () => phoneInput.setCustomValidity(''), { once: true });
+    }
+    return;
+  }
 
   const message = `Hello AK Plaster Art,%0A%0AI would like to schedule a site visit for a project:%0A- *Client*: ${encodeURIComponent(name)}%0A- *Phone*: ${encodeURIComponent(phone)}%0A- *Location in Mumbai*: ${encodeURIComponent(location)}%0A- *Work Type*: ${encodeURIComponent(service)}%0A%0APlease let me know your availability.`;
   
   closeSiteVisitModal();
-  window.open(`https://wa.me/918840035249?text=${message}`, '_blank');
+  dispatchWhatsApp(message);
 }
 
 function handleFormSubmit(event) {
   event.preventDefault();
-  const name = document.getElementById('contact-name')?.value || '';
-  const phone = document.getElementById('contact-phone')?.value || '';
-  const location = document.getElementById('contact-location')?.value || '';
-  const service = document.getElementById('contact-service')?.value || '';
-  const details = document.getElementById('contact-message')?.value || '';
+  const form = document.getElementById('contact-form');
+  if (form && !form.checkValidity()) {
+    form.reportValidity();
+    return;
+  }
+
+  const name = document.getElementById('contact-name')?.value.trim() || '';
+  const phone = document.getElementById('contact-phone')?.value.trim() || '';
+  const location = document.getElementById('contact-location')?.value.trim() || '';
+  const service = document.getElementById('contact-service')?.value.trim() || '';
+  const details = document.getElementById('contact-message')?.value.trim() || '';
+
+  const phoneDigits = phone.replace(/[^0-9]/g, '');
+  if (phoneDigits.length < 10) {
+    const phoneInput = document.getElementById('contact-phone');
+    if (phoneInput) {
+      phoneInput.setCustomValidity('Please enter a valid 10-digit mobile number');
+      phoneInput.reportValidity();
+      phoneInput.addEventListener('input', () => phoneInput.setCustomValidity(''), { once: true });
+    }
+    return;
+  }
 
   const message = `Hello AK Plaster Art,%0A%0AI would like to discuss a project estimate:%0A- *Client*: ${encodeURIComponent(name)}%0A- *Phone*: ${encodeURIComponent(phone)}%0A- *Site Location*: ${encodeURIComponent(location)}%0A- *Primary Work*: ${encodeURIComponent(service)}%0A- *Scope / Details*: ${encodeURIComponent(details)}%0A%0ALooking forward to your response.`;
 
-  window.open(`https://wa.me/918840035249?text=${message}`, '_blank');
+  dispatchWhatsApp(message);
 }
 
 // Close modals on ESC or outside click

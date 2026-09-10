@@ -2,7 +2,7 @@
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>AK Plaster Art | Precision POP, False Ceiling &amp; Partition Specialists in Mumbai</title>
   
   <!-- SEO & Local Search Meta Tags -->
@@ -171,18 +171,24 @@
       </nav>
 
       <!-- Right Nav Actions -->
-      <div class="hidden lg:flex items-center gap-4">
-        <a href="tel:+918840035249" class="p-2.5 rounded border border-slate-700 bg-surface hover:border-accent-yellow hover:text-accent-yellow transition-all" title="Direct Phone Call">
+      <div class="hidden lg:flex items-center gap-3">
+        <!-- Theme Toggle (Dark / Light Mode) -->
+        <button id="theme-toggle" class="min-w-[42px] min-h-[42px] p-2.5 rounded-lg border border-slate-700 bg-surface hover:border-accent-yellow hover:text-accent-yellow text-slate-300 transition-all flex items-center justify-center focus:outline-none" aria-label="Toggle Dark / Light Theme" title="Toggle Theme">
+          <i data-lucide="sun" id="theme-icon-sun" class="w-4 h-4 hidden text-accent-yellow"></i>
+          <i data-lucide="moon" id="theme-icon-moon" class="w-4 h-4 text-slate-300"></i>
+        </button>
+
+        <a href="tel:+918840035249" class="p-2.5 rounded-lg border border-slate-700 bg-surface hover:border-accent-yellow hover:text-accent-yellow text-slate-300 transition-all flex items-center justify-center min-w-[42px] min-h-[42px]" title="Direct Phone Call">
           <i data-lucide="phone-call" class="w-4 h-4"></i>
         </a>
-        <button onclick="openSiteVisitModal()" class="btn-primary flex items-center gap-2 px-5 py-2.5 rounded text-xs font-bold uppercase tracking-wider bg-accent-yellow text-dark hover:bg-yellow-400 transition-all shadow-lg shadow-accent-yellow/20">
+        <button onclick="openSiteVisitModal()" class="btn-primary flex items-center gap-2 px-5 py-2.5 rounded text-xs font-bold uppercase tracking-wider bg-accent-yellow text-dark hover:bg-yellow-400 transition-all shadow-lg shadow-accent-yellow/20 min-h-[42px]">
           <span>GET A QUOTE</span>
           <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
         </button>
       </div>
 
       <!-- Mobile Menu Toggle Button -->
-      <button id="mobile-toggle" class="lg:hidden p-2 text-slate-300 hover:text-accent-yellow focus:outline-none" aria-label="Toggle navigation menu">
+      <button id="mobile-toggle" class="lg:hidden min-w-[44px] min-h-[44px] p-2 flex items-center justify-center text-slate-300 hover:text-accent-yellow focus:outline-none" aria-label="Toggle navigation menu">
         <i data-lucide="menu" id="menu-icon-open" class="w-6 h-6"></i>
         <i data-lucide="x" id="menu-icon-close" class="w-6 h-6 hidden"></i>
       </button>
@@ -190,7 +196,7 @@
     </div>
 
     <!-- Mobile Drawer Menu -->
-    <div id="mobile-menu" class="hidden lg:hidden border-t border-dark-border bg-darker/98 backdrop-blur-xl px-6 py-8 transition-all">
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-dark-border bg-darker/98 backdrop-blur-xl px-6 py-6 transition-all max-h-[calc(100vh-5rem)] overflow-y-auto overscroll-contain">
       <div class="flex flex-col gap-4 text-sm font-semibold tracking-wide font-mono">
         <a href="#hero" class="mobile-nav-link text-white py-2 border-b border-dark-border flex justify-between items-center">
           <span>HOME</span>
@@ -198,7 +204,7 @@
         </a>
         <a href="#services" class="mobile-nav-link text-slate-300 hover:text-accent-yellow py-2 border-b border-dark-border flex justify-between items-center">
           <span>SERVICES</span>
-          <span class="text-xs font-mono text-accent-yellow">06 TYPES</span>
+          <span class="text-xs font-mono text-accent-yellow">07 TYPES</span>
         </a>
         <a href="#pop-specialist" class="mobile-nav-link text-slate-300 hover:text-accent-yellow py-2 border-b border-dark-border flex justify-between items-center">
           <span>POP CRAFT (CORE)</span>
@@ -230,19 +236,29 @@
         </a>
       </div>
 
+      <!-- Theme Switch Row in Mobile Menu -->
+      <div class="mt-4 pt-4 border-t border-dark-border flex items-center justify-between">
+        <span class="text-xs font-mono text-slate-400 uppercase">THEME MODE</span>
+        <button id="mobile-theme-toggle" class="px-3.5 py-2 rounded-lg border border-slate-700 bg-surface text-slate-300 hover:border-accent-yellow hover:text-accent-yellow text-xs font-mono flex items-center gap-2">
+          <i data-lucide="sun" id="mobile-theme-icon-sun" class="w-3.5 h-3.5 hidden text-accent-yellow"></i>
+          <i data-lucide="moon" id="mobile-theme-icon-moon" class="w-3.5 h-3.5"></i>
+          <span id="mobile-theme-text">DARK MODE</span>
+        </button>
+      </div>
+
       <!-- Mobile Contact Buttons -->
-      <div class="mt-6 flex flex-col gap-3">
-        <button onclick="openSiteVisitModal()" class="w-full py-3.5 px-4 rounded bg-accent-yellow text-dark font-bold text-center text-xs uppercase tracking-wider flex items-center justify-center gap-2">
+      <div class="mt-4 flex flex-col gap-3">
+        <button onclick="openSiteVisitModal()" class="w-full py-3.5 px-4 rounded bg-accent-yellow text-dark font-bold text-center text-xs uppercase tracking-wider flex items-center justify-center gap-2 min-h-[44px]">
           <i data-lucide="calendar" class="w-4 h-4"></i>
           <span>BOOK FREE SITE VISIT</span>
         </button>
         <div class="grid grid-cols-2 gap-3">
-          <a href="tel:+918840035249" class="py-3 px-4 rounded border border-slate-700 bg-surface text-white text-xs font-semibold text-center flex items-center justify-center gap-2">
+          <a href="tel:+918840035249" class="py-3 px-4 rounded border border-slate-700 bg-surface text-white text-xs font-semibold text-center flex items-center justify-center gap-2 min-h-[44px]">
             <i data-lucide="phone" class="w-4 h-4 text-accent-yellow"></i>
             <span>CALL</span>
           </a>
-          <a href="https://wa.me/918840035249?text=Hello%20AK%20Plaster%20Art%2C%20I%20would%20like%20to%20discuss%20a%20POP%20%2F%20ceiling%20%2F%20partition%20project." target="_blank" rel="noopener" class="py-3 px-4 rounded bg-emerald-600 text-white text-xs font-semibold text-center flex items-center justify-center gap-2">
-            <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <a href="https://wa.me/918840035249?text=Hello%20AK%20Plaster%20Art%2C%20I%20would%20like%20to%20discuss%20a%20POP%20%2F%20ceiling%20%2F%20partition%20project." target="_blank" rel="noopener" class="py-3 px-4 rounded bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold text-center flex items-center justify-center gap-2 min-h-[44px]">
+            <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
             <span>WHATSAPP</span>
           </a>
         </div>
@@ -258,9 +274,6 @@
         <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/70 to-dark/40"></div>
         <div class="absolute inset-0 bg-radial-grid opacity-30 pointer-events-none"></div>
       </div>
-
-      <!-- Animated Technical Laser Scan Line -->
-      <div class="laser-line-ambient"></div>
 
       <!-- Architectural Crosshairs & Calibration Notches -->
       <div class="absolute top-10 left-10 hidden md:block font-mono text-[10px] text-slate-500 space-y-1 select-none pointer-events-none">
@@ -282,15 +295,17 @@
           <span>POP SPECIALIZATION • 12+ YEARS IN MUMBAI</span>
         </div>
 
-        <!-- Master Headline -->
-        <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black font-display tracking-tight text-white uppercase leading-[0.95] max-w-5xl">
-          PRECISION<br />
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-slate-400">BUILT INTO</span><br />
-          <span class="relative inline-block text-white">
-            EVERY SURFACE.
-            <span class="absolute -bottom-2 left-0 right-0 h-1 bg-accent-yellow rounded-full shadow-sm shadow-accent-yellow"></span>
+      <!-- Master Headline with Kinetic Text Motion Graphics & Mouse Scroll Depth -->
+      <div class="wall-texture-headline relative my-6 w-full flex justify-center perspective-[1200px]" id="hero-headline-wrapper">
+        <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black font-display tracking-tight uppercase leading-[0.95] max-w-5xl will-change-transform select-none" id="hero-wall-headline">
+          <span class="wall-motion-word wall-word-1 block" data-word="PRECISION">PRECISION</span>
+          <span class="wall-motion-word wall-word-2 block" data-word="BUILT INTO">BUILT INTO</span>
+          <span class="wall-motion-word wall-word-3 block relative" data-word="EVERY SURFACE.">
+            <span>EVERY SURFACE.</span>
+            <span class="hero-accent-line absolute -bottom-2 left-0 right-0 h-1 bg-accent-yellow rounded-full shadow-sm shadow-accent-yellow transition-all duration-300" id="hero-accent-line"></span>
           </span>
         </h1>
+      </div>
 
         <!-- Subheadline with Approved Text -->
         <p class="mt-8 text-lg sm:text-xl md:text-2xl text-slate-300 font-normal max-w-3xl leading-relaxed">
@@ -377,11 +392,12 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <!-- Section Header -->
+        <!-- Section Header -->
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div>
             <div class="text-xs font-mono font-bold tracking-widest text-accent-yellow uppercase flex items-center gap-2 mb-3">
               <span class="w-8 h-[2px] bg-accent-yellow"></span>
-              <span>SECTION 02 // SERVICES &amp; EXPERTISE</span>
+              <span>SECTION 02 // SERVICES &amp; EXPERTISE (07 SPECIALIZATIONS)</span>
             </div>
             <h2 class="text-3xl sm:text-5xl font-black font-display uppercase tracking-tight text-white leading-tight">
               BUILT FROM THE<br />
@@ -389,11 +405,11 @@
             </h2>
           </div>
           <p class="max-w-md text-slate-400 text-sm sm:text-base leading-relaxed">
-            From detailed POP craftsmanship to ceiling and partition execution, we bring precision, clean finishing and professional site coordination to every project.
+            From detailed POP craftsmanship to acoustic baffle ceilings and clean interior finishing, we bring precision, durability and on-site perfection to every project.
           </p>
         </div>
 
-        <!-- Service Cards Grid (01 to 06) -->
+        <!-- Service Cards Grid (01 to 07) -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
           <!-- 01 POP / PLASTER OF PARIS (PRIMARY HIGHLIGHT) -->
@@ -432,14 +448,14 @@
                 02
               </div>
               <div class="h-44 w-full rounded overflow-hidden mb-6 relative">
-                <img src="assets/images/pvc-ceiling-modern.jpg" alt="PVC Ceiling Installation Mumbai" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <img src="assets/images/pvc-ceiling-modern.jpg" alt="Contemporary PVC Ceiling Installation Mumbai" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 <div class="absolute inset-0 bg-gradient-to-t from-darker via-transparent to-transparent"></div>
               </div>
               <h3 class="text-xl font-bold font-display text-white group-hover:text-accent-yellow transition-colors">
                 PVC CEILING
               </h3>
               <p class="mt-3 text-slate-400 text-sm leading-relaxed">
-                Practical and modern PVC ceiling solutions for residential and commercial spaces. Moisture-resistant, durable, and clean aesthetic panels.
+                Practical, moisture-resistant and modern PVC ceiling panels for residential and commercial spaces. Premium wood grain &amp; gloss finishes with integrated downlights.
               </p>
             </div>
             <div class="mt-6 pt-4 border-t border-dark-border flex items-center justify-between text-xs font-mono text-slate-400">
@@ -465,7 +481,7 @@
                 GYPSUM / FALSE CEILING
               </h3>
               <p class="mt-3 text-slate-400 text-sm leading-relaxed">
-                Clean and precise gypsum and false ceiling execution with professional finishing, recessed cove lighting, and architectural drops.
+                Clean and precise gypsum false ceiling execution with professional finishing, recessed cove lighting, and architectural multi-level drops.
               </p>
             </div>
             <div class="mt-6 pt-4 border-t border-dark-border flex items-center justify-between text-xs font-mono text-slate-400">
@@ -477,11 +493,45 @@
             </div>
           </div>
 
-          <!-- 04 PARTITION WORK -->
+          <!-- 04 BAFFLE CEILING (ARCHITECTURAL LINEAR & ACOUSTIC) -->
+          <div class="service-card group relative rounded-lg border-2 border-accent-yellow/40 bg-darker p-7 flex flex-col justify-between overflow-hidden hover:border-accent-yellow transition-all duration-300">
+            <div class="absolute top-4 right-4 px-2 py-0.5 rounded bg-surface border border-accent-yellow/60 text-accent-yellow text-[9px] font-mono font-bold uppercase tracking-wider">
+              NRC 0.75+ ACOUSTIC
+            </div>
+            <div>
+              <div class="text-4xl font-black font-mono text-accent-yellow/50 group-hover:text-accent-yellow transition-colors mb-4">
+                04
+              </div>
+              <div class="h-44 w-full rounded overflow-hidden mb-6 relative">
+                <img src="assets/images/baffle-ceiling-modern.jpg" alt="Acoustic Linear Baffle Ceiling Mumbai" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div class="absolute inset-0 bg-gradient-to-t from-darker via-transparent to-transparent"></div>
+              </div>
+              <h3 class="text-xl font-bold font-display text-white group-hover:text-accent-yellow transition-colors">
+                BAFFLE CEILING
+              </h3>
+              <p class="mt-3 text-slate-400 text-sm leading-relaxed">
+                Modern architectural linear baffle ceilings with parallel vertical timber / aluminium fins. Superior sound absorption, continuous recessed LED channels, and laser-guided alignment.
+              </p>
+              <div class="mt-3 flex flex-wrap gap-1.5 text-[10px] font-mono text-slate-400">
+                <span class="px-2 py-0.5 rounded bg-surface border border-slate-700">Aluminium / Timber Fins</span>
+                <span class="px-2 py-0.5 rounded bg-surface border border-slate-700">Concealed Carrier</span>
+                <span class="px-2 py-0.5 rounded bg-surface border border-slate-700">Laser Leveled</span>
+              </div>
+            </div>
+            <div class="mt-6 pt-4 border-t border-dark-border flex items-center justify-between text-xs font-mono text-slate-400">
+              <span class="text-accent-yellow">LINEAR ARCHITECTURE</span>
+              <button onclick="openServiceInquiry('Baffle Ceiling')" class="flex items-center gap-1 hover:text-white transition-colors">
+                <span>INQUIRE</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- 05 PARTITION WORK -->
           <div class="service-card group relative rounded-lg border border-dark-border bg-darker p-7 flex flex-col justify-between overflow-hidden hover:border-slate-600 transition-all duration-300">
             <div>
               <div class="text-4xl font-black font-mono text-slate-600 group-hover:text-white transition-colors mb-4">
-                04
+                05
               </div>
               <div class="h-44 w-full rounded overflow-hidden mb-6 relative">
                 <img src="assets/images/gypsum-partition-work.jpg" alt="Gypsum Partition Contractor Mumbai" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
@@ -503,11 +553,11 @@
             </div>
           </div>
 
-          <!-- 05 PAINTING WORK (SUPPORTING) -->
+          <!-- 06 PAINTING WORK (SUPPORTING) -->
           <div class="service-card group relative rounded-lg border border-dark-border bg-darker p-7 flex flex-col justify-between overflow-hidden hover:border-slate-600 transition-all duration-300">
             <div>
               <div class="text-4xl font-black font-mono text-slate-600 group-hover:text-white transition-colors mb-4">
-                05
+                06
               </div>
               <div class="h-44 w-full rounded overflow-hidden mb-6 relative">
                 <img src="assets/images/interior-painting.jpg" alt="Interior Painting Finishing Mumbai" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
@@ -520,7 +570,7 @@
                 [ SUPPORTING FINISHING ]
               </span>
               <p class="mt-2 text-slate-400 text-sm leading-relaxed">
-                Interior painting and finishing work coordinated with the overall project. Smooth putty application, primer sealing, and premium paint finishes.
+                Interior painting and finishing work coordinated with the overall project. Smooth putty application, primer sealing, crisp masking lines, and premium paint finishes.
               </p>
             </div>
             <div class="mt-6 pt-4 border-t border-dark-border flex items-center justify-between text-xs font-mono text-slate-400">
@@ -532,11 +582,11 @@
             </div>
           </div>
 
-          <!-- 06 CARPENTRY & FURNITURE (SUPPORTING) -->
+          <!-- 07 CARPENTRY & FURNITURE (SUPPORTING) -->
           <div class="service-card group relative rounded-lg border border-dark-border bg-darker p-7 flex flex-col justify-between overflow-hidden hover:border-slate-600 transition-all duration-300">
             <div>
               <div class="text-4xl font-black font-mono text-slate-600 group-hover:text-white transition-colors mb-4">
-                06
+                07
               </div>
               <div class="h-44 w-full rounded overflow-hidden mb-6 relative">
                 <img src="assets/images/interior-carpentry.jpg" alt="Carpentry Furniture Coordination Mumbai" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
@@ -560,6 +610,8 @@
               </button>
             </div>
           </div>
+
+        </div>
 
         </div>
 
@@ -996,7 +1048,23 @@
             </div>
           </div>
 
-          <!-- Item 4: Modern PVC Ceiling -->
+          <!-- Item 4: Baffle Ceiling Architectural Slats -->
+          <div class="gallery-item group relative rounded-lg overflow-hidden border border-dark-border bg-dark cursor-pointer" data-category="ceiling" onclick="openLightbox('assets/images/baffle-ceiling-modern.jpg', 'Architectural Acoustic Linear Baffle Ceiling', 'Baffle Ceiling')">
+            <div class="h-72 w-full overflow-hidden">
+              <img src="assets/images/baffle-ceiling-modern.jpg" alt="Architectural Baffle Ceiling Installation" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            </div>
+            <div class="p-5 border-t border-dark-border flex justify-between items-center bg-darker">
+              <div>
+                <span class="text-[10px] font-mono text-accent-yellow uppercase tracking-wider block">ACOUSTIC BAFFLES</span>
+                <h3 class="text-base font-bold font-display text-white group-hover:text-accent-yellow transition-colors">Linear Slatted Baffle Ceiling</h3>
+              </div>
+              <div class="p-2 rounded bg-surface border border-slate-700 group-hover:border-accent-yellow transition-colors">
+                <i data-lucide="zoom-in" class="w-4 h-4 text-slate-300"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 5: Modern PVC Ceiling -->
           <div class="gallery-item group relative rounded-lg overflow-hidden border border-dark-border bg-dark cursor-pointer" data-category="ceiling" onclick="openLightbox('assets/images/pvc-ceiling-modern.jpg', 'Contemporary Architectural PVC Ceiling Panels', 'PVC Ceiling')">
             <div class="h-72 w-full overflow-hidden">
               <img src="assets/images/pvc-ceiling-modern.jpg" alt="Modern PVC Ceiling Panel Installation" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
@@ -1012,7 +1080,7 @@
             </div>
           </div>
 
-          <!-- Item 5: Painting Work Finishing -->
+          <!-- Item 6: Painting Work Finishing -->
           <div class="gallery-item group relative rounded-lg overflow-hidden border border-dark-border bg-dark cursor-pointer" data-category="painting" onclick="openLightbox('assets/images/interior-painting.jpg', 'Interior Wall &amp; Ceiling Emulsion Finish', 'Painting Work')">
             <div class="h-72 w-full overflow-hidden">
               <img src="assets/images/interior-painting.jpg" alt="Interior Emulsion Painting Work" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
@@ -1028,7 +1096,7 @@
             </div>
           </div>
 
-          <!-- Item 6: Carpentry Coordination -->
+          <!-- Item 7: Carpentry Coordination -->
           <div class="gallery-item group relative rounded-lg overflow-hidden border border-dark-border bg-dark cursor-pointer" data-category="furniture" onclick="openLightbox('assets/images/interior-carpentry.jpg', 'Supporting Carpentry &amp; Architectural Woodwork', 'Carpentry &amp; Furniture')">
             <div class="h-72 w-full overflow-hidden">
               <img src="assets/images/interior-carpentry.jpg" alt="Interior Carpentry Coordination" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
@@ -1479,12 +1547,12 @@
 
               <!-- Quick Action Direct Buttons -->
               <div class="mt-8 flex flex-wrap gap-4">
-                <a href="tel:+918840035249" class="px-6 py-3.5 rounded bg-accent-yellow text-dark font-display font-bold text-xs uppercase tracking-wider hover:bg-yellow-400 transition-all flex items-center gap-2 shadow-lg shadow-accent-yellow/20">
+                <a href="tel:+918840035249" class="px-6 py-3.5 rounded bg-accent-yellow text-dark font-display font-bold text-xs uppercase tracking-wider hover:bg-yellow-400 transition-all flex items-center gap-2 shadow-lg shadow-accent-yellow/20 min-h-[44px]">
                   <i data-lucide="phone" class="w-4 h-4"></i>
                   <span>CALL NOW</span>
                 </a>
-                <a href="https://wa.me/918840035249?text=Hello%20AK%20Plaster%20Art%2C%20I%20would%20like%20to%20discuss%20a%20POP%20%2F%20ceiling%20%2F%20partition%20project." target="_blank" rel="noopener" class="px-6 py-3.5 rounded bg-emerald-600 text-white font-display font-bold text-xs uppercase tracking-wider hover:bg-emerald-500 transition-all flex items-center gap-2">
-                  <i data-lucide="message-circle" class="w-4 h-4"></i>
+                <a href="https://wa.me/918840035249?text=Hello%20AK%20Plaster%20Art%2C%20I%20would%20like%20to%20discuss%20a%20POP%20%2F%20ceiling%20%2F%20partition%20project." target="_blank" rel="noopener" class="px-6 py-3.5 rounded bg-emerald-600 text-white font-display font-bold text-xs uppercase tracking-wider hover:bg-emerald-500 transition-all flex items-center gap-2 min-h-[44px]">
+                  <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
                   <span>WHATSAPP</span>
                 </a>
               </div>
@@ -1538,39 +1606,52 @@
 
               <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
                 <div>
-                  <label for="contact-name" class="block text-xs font-mono text-slate-400 uppercase mb-1">Your Name / Organization *</label>
-                  <input type="text" id="contact-name" required placeholder="e.g. Rahul Sharma / HS Designs" class="w-full px-4 py-3 rounded bg-dark border border-slate-700 text-white text-sm focus:border-accent-yellow focus:outline-none transition-colors" />
+                  <label for="contact-name" class="block text-xs font-mono text-slate-300 uppercase mb-1">
+                    Your Name / Organization <span class="text-amber-400 font-bold" title="Required">*</span>
+                  </label>
+                  <input type="text" id="contact-name" required autocomplete="name" minlength="2" placeholder="e.g. Rahul Sharma / HS Designs" class="w-full px-4 py-3 rounded bg-dark border border-slate-700 text-white text-sm focus:border-accent-yellow focus:outline-none transition-colors" />
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label for="contact-phone" class="block text-xs font-mono text-slate-400 uppercase mb-1">Phone Number *</label>
-                    <input type="tel" id="contact-phone" required placeholder="+91 XXXXX XXXXX" class="w-full px-4 py-3 rounded bg-dark border border-slate-700 text-white text-sm focus:border-accent-yellow focus:outline-none transition-colors" />
+                    <label for="contact-phone" class="block text-xs font-mono text-slate-300 uppercase mb-1">
+                      Phone Number (WhatsApp) <span class="text-amber-400 font-bold" title="Required">*</span>
+                    </label>
+                    <input type="tel" id="contact-phone" inputmode="tel" required autocomplete="tel" pattern="[0-9\+\s\-]{10,15}" title="Please enter a valid 10-digit mobile number" placeholder="+91 98208 65207" class="w-full px-4 py-3 rounded bg-dark border border-slate-700 text-white text-sm focus:border-accent-yellow focus:outline-none transition-colors" />
                   </div>
                   <div>
-                    <label for="contact-location" class="block text-xs font-mono text-slate-400 uppercase mb-1">Project Site Location *</label>
-                    <input type="text" id="contact-location" required placeholder="e.g. Bandra / BKC / Kurla" class="w-full px-4 py-3 rounded bg-dark border border-slate-700 text-white text-sm focus:border-accent-yellow focus:outline-none transition-colors" />
+                    <label for="contact-location" class="block text-xs font-mono text-slate-300 uppercase mb-1">
+                      Project Site Location in Mumbai <span class="text-amber-400 font-bold" title="Required">*</span>
+                    </label>
+                    <input type="text" id="contact-location" required placeholder="e.g. Bandra / BKC / Kurla / Andheri" class="w-full px-4 py-3 rounded bg-dark border border-slate-700 text-white text-sm focus:border-accent-yellow focus:outline-none transition-colors" />
                   </div>
                 </div>
 
                 <div>
-                  <label for="contact-service" class="block text-xs font-mono text-slate-400 uppercase mb-1">Primary Work Required *</label>
+                  <label for="contact-service" class="block text-xs font-mono text-slate-300 uppercase mb-1">
+                    Primary Work Required <span class="text-amber-400 font-bold" title="Required">*</span>
+                  </label>
                   <select id="contact-service" required class="w-full px-4 py-3 rounded bg-dark border border-slate-700 text-white text-sm focus:border-accent-yellow focus:outline-none transition-colors">
                     <option value="POP / Plaster of Paris Works">POP / Plaster of Paris (Core Specialization)</option>
                     <option value="Gypsum False Ceiling">Gypsum False Ceiling</option>
                     <option value="PVC Ceiling">PVC Ceiling</option>
+                    <option value="Acoustic &amp; Linear Baffle Ceilings">Acoustic &amp; Linear Baffle Ceilings</option>
                     <option value="Gypsum &amp; Interior Partitions">Gypsum &amp; Interior Partitions</option>
+                    <option value="Painting &amp; Emulsion Work">Painting &amp; Emulsion Work</option>
                     <option value="Complete Interior Finishing Coordination">Complete Interior Finishing Coordination</option>
                   </select>
                 </div>
 
                 <div>
-                  <label for="contact-message" class="block text-xs font-mono text-slate-400 uppercase mb-1">Project Details / Approximate Area (Sq Ft)</label>
+                  <label for="contact-message" class="block text-xs font-mono text-slate-400 uppercase mb-1">
+                    Project Details / Approximate Area (Sq Ft) <span class="text-slate-500 text-[10px]">(Optional)</span>
+                  </label>
                   <textarea id="contact-message" rows="3" placeholder="Describe your site, approximate sq ft, or specific architectural design requirements..." class="w-full px-4 py-3 rounded bg-dark border border-slate-700 text-white text-sm focus:border-accent-yellow focus:outline-none transition-colors"></textarea>
                 </div>
 
-                <button type="submit" class="w-full py-4 rounded bg-accent-yellow text-dark font-display font-extrabold text-sm uppercase tracking-wider hover:bg-yellow-400 transition-all flex items-center justify-center gap-2 shadow-lg shadow-accent-yellow/20">
+                <button type="submit" class="w-full py-4 rounded bg-accent-yellow text-dark font-display font-extrabold text-sm uppercase tracking-wider hover:bg-yellow-400 transition-all flex items-center justify-center gap-2.5 shadow-lg shadow-accent-yellow/20 min-h-[48px]">
                   <span>SEND INQUIRY VIA WHATSAPP / CALL</span>
+                  <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
                   <i data-lucide="send" class="w-4 h-4"></i>
                 </button>
                 
@@ -1680,24 +1761,31 @@
     </div>
   </footer>
 
-  <!-- FLOATING WHATSAPP BUTTON -->
-  <a href="https://wa.me/918840035249?text=Hello%20AK%20Plaster%20Art%2C%20I%20would%20like%20to%20discuss%20a%20POP%20%2F%20ceiling%20%2F%20partition%20project." target="_blank" rel="noopener" class="floating-whatsapp fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white flex items-center justify-center shadow-2xl hover:scale-110 transition-all group" aria-label="Chat with AK Plaster Art on WhatsApp">
-    <i data-lucide="message-circle" class="w-7 h-7"></i>
-    <span class="absolute right-full mr-3 px-3 py-1.5 rounded bg-darker/95 backdrop-blur border border-slate-700 text-xs font-mono text-white whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-xl">
-      Chat with AK Plaster Art
-    </span>
-  </a>
+  <!-- FLOATING ACTION DOCK (Call, WhatsApp & Free Estimate at the bottom - 10% Reduced Size) -->
+  <div class="floating-action-dock" aria-label="Quick contact actions">
+    
+    <!-- Floating Call Button (10% Reduced: 50px) -->
+    <a href="tel:+918840035249" class="floating-btn-round floating-call relative group" aria-label="Call AK Plaster Art">
+      <i data-lucide="phone" class="w-5 h-5 shrink-0 text-dark"></i>
+      <span class="absolute right-full mr-2.5 px-2.5 py-1 rounded bg-darker/95 backdrop-blur border border-slate-700 text-[11px] font-mono text-white whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg hidden sm:inline-block">
+        Call: +91 8840035249
+      </span>
+    </a>
 
-  <!-- STICKY MOBILE CALL BAR (Visible only on small mobile devices) -->
-  <div class="mobile-sticky-bar lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-darker/95 backdrop-blur-md border-t border-dark-border p-2.5 flex gap-2">
-    <a href="tel:+918840035249" class="flex-1 py-3 px-3 rounded bg-accent-yellow text-dark font-display font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2">
-      <i data-lucide="phone" class="w-4 h-4"></i>
-      <span>CALL NOW</span>
+    <!-- Floating WhatsApp Button (10% Reduced: 50px) -->
+    <a href="https://wa.me/918840035249?text=Hello%20AK%20Plaster%20Art%2C%20I%20would%20like%20to%20discuss%20a%20POP%20%2F%20ceiling%20%2F%20partition%20project." target="_blank" rel="noopener" class="floating-btn-round floating-whatsapp relative group" aria-label="Chat with AK Plaster Art on WhatsApp">
+      <svg class="w-6 h-6 fill-current shrink-0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      <span class="absolute right-full mr-2.5 px-2.5 py-1 rounded bg-darker/95 backdrop-blur border border-slate-700 text-[11px] font-mono text-white whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg hidden sm:inline-block">
+        WhatsApp Chat
+      </span>
     </a>
-    <a href="https://wa.me/918840035249?text=Hello%20AK%20Plaster%20Art%2C%20I%20would%20like%20to%20discuss%20a%20POP%20%2F%20ceiling%20%2F%20partition%20project." target="_blank" rel="noopener" class="flex-1 py-3 px-3 rounded bg-emerald-600 text-white font-display font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2">
-      <i data-lucide="message-circle" class="w-4 h-4"></i>
-      <span>WHATSAPP</span>
-    </a>
+
+    <!-- Floating Free Estimate Button (Sabse Nichi / At the Very Bottom) -->
+    <button onclick="openSiteVisitModal()" class="floating-estimate h-10 px-3.5 rounded-full bg-darker/95 backdrop-blur-md border border-accent-yellow text-accent-yellow hover:bg-accent-yellow hover:text-dark font-display font-bold text-[11px] uppercase tracking-wider flex items-center gap-1.5 shadow-xl transition-all group" aria-label="Book Free Site Visit">
+      <i data-lucide="calendar" class="w-3.5 h-3.5 shrink-0 text-accent-yellow group-hover:text-dark"></i>
+      <span>FREE ESTIMATE</span>
+    </button>
+
   </div>
 
   <!-- LIGHTBOX / INSPECT MODAL -->
@@ -1718,47 +1806,57 @@
     </div>
   </div>
 
-  <!-- SITE VISIT / SCHEDULE MODAL -->
-  <div id="site-visit-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-4">
-    <div class="relative max-w-lg w-full bg-darker rounded-xl border border-accent-yellow/50 overflow-hidden shadow-2xl p-6 sm:p-8">
+  <!-- SITE VISIT / SCHEDULE MODAL (Keyboard & Mobile Friendly) -->
+  <div id="site-visit-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-4 overflow-y-auto">
+    <div class="relative max-w-lg w-full bg-darker rounded-xl border border-accent-yellow/50 shadow-2xl p-6 sm:p-8 my-auto max-h-[90vh] overflow-y-auto">
       <div class="flex items-center justify-between pb-4 border-b border-dark-border mb-6">
         <div>
           <span class="text-xs font-mono text-accent-yellow font-bold uppercase">[ SITE INSPECTION ]</span>
           <h3 class="text-xl font-black font-display text-white mt-0.5">SCHEDULE FREE SITE VISIT</h3>
         </div>
-        <button onclick="closeSiteVisitModal()" class="p-2 text-slate-400 hover:text-white rounded hover:bg-surface transition-colors">
+        <button onclick="closeSiteVisitModal()" class="min-w-[44px] min-h-[44px] flex items-center justify-center p-2 text-slate-400 hover:text-white rounded hover:bg-surface transition-colors" aria-label="Close site visit modal">
           <i data-lucide="x" class="w-5 h-5"></i>
         </button>
       </div>
 
       <form id="modal-form" onsubmit="handleModalSubmit(event)" class="space-y-4">
         <div>
-          <label class="block text-xs font-mono text-slate-400 uppercase mb-1">Your Full Name *</label>
-          <input type="text" id="modal-name" required placeholder="Name" class="w-full px-4 py-2.5 rounded bg-dark border border-slate-700 text-white text-sm focus:border-accent-yellow focus:outline-none" />
+          <label class="block text-xs font-mono text-slate-300 uppercase mb-1">
+            Your Full Name <span class="text-amber-400 font-bold" title="Required">*</span>
+          </label>
+          <input type="text" id="modal-name" required autocomplete="name" minlength="2" placeholder="e.g. Rahul Sharma" class="w-full px-4 py-2.5 rounded bg-dark border border-slate-700 text-white text-sm focus:border-accent-yellow focus:outline-none" />
         </div>
         <div>
-          <label class="block text-xs font-mono text-slate-400 uppercase mb-1">Phone Number (WhatsApp) *</label>
-          <input type="tel" id="modal-phone" required placeholder="+91 XXXXX XXXXX" class="w-full px-4 py-2.5 rounded bg-dark border border-slate-700 text-white text-sm focus:border-accent-yellow focus:outline-none" />
+          <label class="block text-xs font-mono text-slate-300 uppercase mb-1">
+            Phone Number (WhatsApp) <span class="text-amber-400 font-bold" title="Required">*</span>
+          </label>
+          <input type="tel" id="modal-phone" inputmode="tel" required autocomplete="tel" pattern="[0-9\+\s\-]{10,15}" title="Please enter a valid 10-digit mobile number" placeholder="+91 98208 65207" class="w-full px-4 py-2.5 rounded bg-dark border border-slate-700 text-white text-sm focus:border-accent-yellow focus:outline-none" />
         </div>
         <div>
-          <label class="block text-xs font-mono text-slate-400 uppercase mb-1">Site Address / Area in Mumbai *</label>
+          <label class="block text-xs font-mono text-slate-300 uppercase mb-1">
+            Site Address / Area in Mumbai <span class="text-amber-400 font-bold" title="Required">*</span>
+          </label>
           <input type="text" id="modal-location" required placeholder="e.g. Bandra West / Kurla / Andheri" class="w-full px-4 py-2.5 rounded bg-dark border border-slate-700 text-white text-sm focus:border-accent-yellow focus:outline-none" />
         </div>
         <div>
-          <label class="block text-xs font-mono text-slate-400 uppercase mb-1">Work Type *</label>
-          <select id="modal-service" class="w-full px-4 py-2.5 rounded bg-dark border border-slate-700 text-white text-sm focus:border-accent-yellow focus:outline-none">
+          <label class="block text-xs font-mono text-slate-300 uppercase mb-1">
+            Work Type <span class="text-amber-400 font-bold" title="Required">*</span>
+          </label>
+          <select id="modal-service" required class="w-full px-4 py-2.5 rounded bg-dark border border-slate-700 text-white text-sm focus:border-accent-yellow focus:outline-none">
             <option value="POP / Plaster of Paris Works">POP / Plaster of Paris (Core Craft)</option>
             <option value="Gypsum False Ceiling">Gypsum False Ceiling</option>
             <option value="PVC Ceiling">PVC Ceiling</option>
+            <option value="Acoustic &amp; Linear Baffle Ceilings">Acoustic &amp; Linear Baffle Ceilings</option>
             <option value="Gypsum Partition Walls">Gypsum Partition Walls</option>
+            <option value="Painting &amp; Emulsion Work">Painting &amp; Emulsion Work</option>
             <option value="Full Interior Finishing Coordination">Full Interior Finishing Coordination</option>
           </select>
         </div>
 
         <div class="pt-2">
-          <button type="submit" class="w-full py-3.5 rounded bg-accent-yellow text-dark font-display font-extrabold text-sm uppercase tracking-wider hover:bg-yellow-400 transition-all flex items-center justify-center gap-2">
+          <button type="submit" class="w-full py-3.5 rounded bg-accent-yellow text-dark font-display font-extrabold text-sm uppercase tracking-wider hover:bg-yellow-400 transition-all flex items-center justify-center gap-2.5 min-h-[48px]">
+            <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
             <span>CONFIRM &amp; DISPATCH VIA WHATSAPP</span>
-            <i data-lucide="arrow-right" class="w-4 h-4"></i>
           </button>
         </div>
       </form>

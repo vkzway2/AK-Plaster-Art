@@ -1,4 +1,4 @@
-﻿/* ==========================================================================
+/* ==========================================================================
    AK PLASTER ART — PREMIUM ARCHITECTURAL DESIGN SYSTEM & STYLESHEET
    Specialization: POP (Plaster of Paris) Works • Mumbai
    ========================================================================== */
@@ -36,10 +36,13 @@ html {
   scroll-behavior: smooth;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
   overflow-x: hidden;
+  max-width: 100%;
   background-color: var(--color-dark);
   min-height: 100vh;
   line-height: 1.5;
@@ -113,26 +116,6 @@ body {
   width: 100%;
 }
 
-/* Laser Scanning Line in Hero */
-.laser-line-ambient {
-  position: absolute;
-  top: 45%;
-  left: 0;
-  right: 0;
-  height: 1.5px;
-  background: linear-gradient(90deg, transparent 0%, rgba(239, 68, 68, 0.3) 20%, #ef4444 50%, rgba(239, 68, 68, 0.3) 80%, transparent 100%);
-  box-shadow: 0 0 10px #ef4444, 0 0 3px #ffffff;
-  pointer-events-none;
-  z-index: 5;
-  opacity: 0.85;
-  animation: laserPulse 4s ease-in-out infinite alternate;
-}
-
-@keyframes laserPulse {
-  0% { transform: translateY(-30px); opacity: 0.4; }
-  50% { opacity: 0.9; }
-  100% { transform: translateY(30px); opacity: 0.5; }
-}
 
 /* Laser Scanner in Section 04 */
 .laser-scanner {
@@ -165,7 +148,7 @@ body {
 /* Before / After Slider Engine */
 .before-after-container {
   position: relative;
-  touch-action: none;
+  touch-action: pan-y;
   cursor: ew-resize;
   user-select: none;
 }
@@ -210,18 +193,213 @@ body {
   border-color: rgba(245, 158, 11, 0.4);
 }
 .gallery-item.hidden-item {
-  display: none;
+  display: none !important;
   opacity: 0;
   transform: scale(0.95);
 }
-
-/* Floating WhatsApp Pulse */
-.floating-whatsapp {
-  animation: floatBounce 3s ease-in-out infinite;
+/* Light Mode Theme Variables */
+html.light {
+  --color-dark: #F8FAFC;
+  --color-darker: #FFFFFF;
+  --color-surface: #F1F5F9;
+  --color-surface-hover: #E2E8F0;
+  --color-border: #E2E8F0;
+  --color-border-light: #CBD5E1;
+  --color-accent-yellow: #D97706;
+  --color-accent-yellow-hover: #B45309;
+  --color-laser-red: #DC2626;
+  --color-text-main: #0F172A;
+  --color-text-muted: #334155;
+  --color-text-dim: #64748B;
 }
-@keyframes floatBounce {
+
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+html.light {
+  color-scheme: light;
+}
+html.dark {
+  color-scheme: dark;
+}
+html.light body {
+  background-color: var(--color-dark);
+  color: var(--color-text-main);
+}
+html.light .text-white {
+  color: #0F172A !important;
+}
+html.light .text-slate-200 {
+  color: #1E293B !important;
+}
+html.light .text-slate-300 {
+  color: #334155 !important;
+}
+html.light .text-slate-400 {
+  color: #475569 !important;
+}
+html.light .border-dark-border {
+  border-color: var(--color-border) !important;
+}
+html.light .border-slate-700,
+html.light .border-slate-600 {
+  border-color: var(--color-border-light) !important;
+}
+html.light #main-nav {
+  background-color: rgba(255, 255, 255, 0.94) !important;
+  border-color: var(--color-border) !important;
+}
+html.light #main-nav.scrolled {
+  background-color: rgba(255, 255, 255, 0.98) !important;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08) !important;
+}
+html.light #mobile-menu {
+  background-color: rgba(255, 255, 255, 0.98) !important;
+}
+html.light .top-status-bar {
+  background-color: #F1F5F9 !important;
+  border-color: var(--color-border) !important;
+  color: #475569 !important;
+}
+html.light input,
+html.light select,
+html.light textarea {
+  background-color: #FFFFFF !important;
+  color: #0F172A !important;
+  border-color: var(--color-border-light) !important;
+}
+/* Keep Hero Section Cinematic & Legible in Light Mode */
+html.light #hero .text-white {
+  color: #FFFFFF !important;
+}
+html.light #hero .text-slate-300 {
+  color: #E2E8F0 !important;
+}
+html.light #hero .text-slate-400 {
+  color: #CBD5E1 !important;
+}
+html.light footer {
+  background-color: #0B111E !important;
+  color: #94A3B8 !important;
+}
+html.light footer .text-white {
+  color: #F8FAFC !important;
+}
+html.light footer .border-dark-border {
+  border-color: #1E293B !important;
+}
+
+/* Hero Headline Kinetic Motion Graphics & Wall Texture (Mouse + Scroll) */
+.wall-texture-headline {
+  position: relative;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+#hero-wall-headline {
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.08s ease-out;
+}
+
+.wall-motion-word {
+  display: block;
+  background-image:
+    radial-gradient(circle at var(--mouse-light-x, 50%) var(--mouse-light-y, 50%), #FFFFFF 0%, #E2E8F0 42%, #94A3B8 82%, #64748B 100%),
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.05) 0px, rgba(255, 255, 255, 0.05) 2px, transparent 2px, transparent 6px),
+    radial-gradient(circle at var(--scroll-light-x, 50%) var(--scroll-light-y, 40%), rgba(245, 158, 11, 0.45) 0%, transparent 65%);
+  background-size: 160% 160%, 14px 14px, 140% 140%;
+  background-position: calc(50% + var(--texture-offset-x, 0px)) calc(50% + var(--texture-offset-y, 0px));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 4px 14px rgba(0, 0, 0, 0.7);
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.75));
+  will-change: transform, background-position;
+  transform-style: preserve-3d;
+  transition: transform 0.1s ease-out, filter 0.2s ease;
+}
+
+.wall-word-1 {
+  transform: translate3d(var(--word1-x, 0px), var(--word1-y, 0px), var(--word1-z, 0px));
+}
+
+.wall-word-2 {
+  transform: translate3d(var(--word2-x, 0px), var(--word2-y, 0px), var(--word2-z, 0px));
+}
+
+.wall-word-3 {
+  transform: translate3d(var(--word3-x, 0px), var(--word3-y, 0px), var(--word3-z, 0px));
+}
+
+html.light .wall-motion-word {
+  background-image:
+    radial-gradient(circle at var(--mouse-light-x, 50%) var(--mouse-light-y, 50%), #0F172A 0%, #1E293B 45%, #334155 85%, #475569 100%),
+    repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.04) 0px, rgba(0, 0, 0, 0.04) 2px, transparent 2px, transparent 6px),
+    radial-gradient(circle at var(--scroll-light-x, 50%) var(--scroll-light-y, 40%), rgba(217, 119, 6, 0.4) 0%, transparent 60%);
+  text-shadow: none;
+  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.12));
+}
+
+.hero-accent-line {
+  transform-origin: center;
+  transition: transform 0.15s ease-out, box-shadow 0.2s ease;
+}
+
+/* Floating Action Dock (Free Estimate, Call & WhatsApp) - 10% Reduced Size */
+.floating-action-dock {
+  position: fixed;
+  bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
+  right: 1.25rem;
+  z-index: 45;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.65rem;
+}
+
+.floating-btn-round {
+  width: 50px;
+  height: 50px;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 20px -3px rgba(0, 0, 0, 0.35), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+}
+.floating-btn-round:hover {
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 14px 28px -4px rgba(0, 0, 0, 0.45);
+}
+
+.floating-whatsapp {
+  background-color: #059669;
+  color: #ffffff;
+  animation: floatPulseGreen 3s ease-in-out infinite;
+}
+.floating-whatsapp:hover {
+  background-color: #10B981;
+}
+@keyframes floatPulseGreen {
+  0%, 100% { box-shadow: 0 10px 20px -3px rgba(16, 185, 129, 0.45); }
+  50% { box-shadow: 0 14px 28px -2px rgba(16, 185, 129, 0.7); }
+}
+
+.floating-call {
+  background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+  color: #080C14;
+}
+.floating-call:hover {
+  background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%);
+}
+
+.floating-estimate {
+  animation: estimateGaze 4s ease-in-out infinite;
+}
+@keyframes estimateGaze {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+  50% { transform: translateY(-3px); }
 }
 
 /* Modal Open / Close Transition */
@@ -235,14 +413,14 @@ body {
   to { opacity: 1; transform: scale(1); }
 }
 
-/* Mobile Sticky Bar Margin for Body */
-@media (max-width: 1023px) {
-  body {
-    padding-bottom: 70px;
-  }
-  .floating-whatsapp {
-    bottom: 80px;
-    right: 16px;
+/* Mobile Form Inputs: Prevent iOS Safari Auto-Zoom (requires 16px font-size) */
+@media (max-width: 640px) {
+  input[type="text"],
+  input[type="tel"],
+  input[type="email"],
+  select,
+  textarea {
+    font-size: 16px !important;
   }
 }
 
@@ -254,7 +432,6 @@ body {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-  .laser-line-ambient,
   .laser-scanner {
     display: none !important;
   }
